@@ -21,6 +21,7 @@
         <li><a href="index.php?c=password&a=index">3. Generador de Contraseñas Seguras</a></li>
         <li><a href="index.php?c=gastos&a=index">4. Gestor de Gastos</a></li>
         <li><a href="index.php?c=reservas&a=index">5. Sistema de Reservas</a></li>
+        <li><a href="index.php?c=notas&a=index">6. Gestor de Notas</a></li>
         </ul>
 </body>
 </html>
