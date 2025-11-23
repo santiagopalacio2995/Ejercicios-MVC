@@ -53,6 +53,6 @@ class GastoModel {
         return $resumen;
     }
     
-    // NOTA: Para el resumen mensual, necesitarías agrupar por mes y año.
+    
 }
 ?>
