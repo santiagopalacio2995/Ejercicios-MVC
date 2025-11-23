@@ -23,6 +23,7 @@
         <li><a href="index.php?c=reservas&a=index">5. Sistema de Reservas</a></li>
         <li><a href="index.php?c=notas&a=index">6. Gestor de Notas</a></li>
         <li><a href="index.php?c=calendario&a=index">7. Calendario de Eventos</a></li>
+        <li><a href="index.php?c=recetas&a=index">8. Plataforma de Recetas</a></li>
         </ul>
 </body>
 </html>

@@ -46,6 +46,9 @@ class CalendarioController {
         if (!empty($titulo) && !empty($fecha)) {
             $this->model->agregarEvento($titulo, $fecha, $hora);
         }
+        $mes = date('m', strtotime($fecha));
+        $anio = date('Y', strtotime($fecha));
+        header("Location: index.php?c=calendario&a=index&mes=$mes&anio=$anio");
         }
 
     public function eliminar() {
