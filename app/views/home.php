@@ -19,6 +19,7 @@
         <li><a href="index.php?c=tareas&a=index">1. Lista de Tareas</a></li>
         <li><a href="index.php?c=propinas&a=index">2. Calculadora de Propinas</a></li>
         <li><a href="index.php?c=password&a=index">3. Generador de Contraseñas Seguras</a></li>
+        <li><a href="index.php?c=gastos&a=index">4. Gestor de Gastos</a></li>
         </ul>
 </body>
 </html>
