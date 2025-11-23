@@ -12,12 +12,13 @@
     </style>
 </head>
 <body>
-    <h1>Portafolio de Ejercicios PHP MVC</h1>
+    <h1>Ejercicios PHP MVC</h1>
     <p>Selecciona un ejercicio:</p>
     
     <ul>
         <li><a href="index.php?c=tareas&a=index">1. Lista de Tareas</a></li>
         <li><a href="index.php?c=propinas&a=index">2. Calculadora de Propinas</a></li>
+        <li><a href="index.php?c=password&a=index">3. Generador de Contraseñas Seguras</a></li>
         </ul>
 </body>
 </html>
