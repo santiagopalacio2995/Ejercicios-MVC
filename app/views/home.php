@@ -26,6 +26,7 @@
         <li><a href="index.php?c=recetas&a=index">8. Plataforma de Recetas</a></li>
         <li><a href="index.php?c=juego&a=index">9. Juego de Memoria</a></li>
         <li><a href="index.php?c=encuestas&a=index">10. Plataforma de Encuestas</a></li>
+        <li><a href="index.php?c=cronometro&a=index">11. Cronómetro </a></li>
         </ul>
 </body>
 </html>
