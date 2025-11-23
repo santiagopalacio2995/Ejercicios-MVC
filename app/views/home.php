@@ -20,6 +20,7 @@
         <li><a href="index.php?c=propinas&a=index">2. Calculadora de Propinas</a></li>
         <li><a href="index.php?c=password&a=index">3. Generador de Contraseñas Seguras</a></li>
         <li><a href="index.php?c=gastos&a=index">4. Gestor de Gastos</a></li>
+        <li><a href="index.php?c=reservas&a=index">5. Sistema de Reservas</a></li>
         </ul>
 </body>
 </html>
