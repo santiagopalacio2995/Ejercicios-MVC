@@ -11,14 +11,14 @@ class PasswordController {
     public function index() {
         $passwordGenerada = '';
         
-        // Valores por defecto para que el formulario no se borre al recargar
+        
         $longitud = 12;
         $mayus = true;
         $nums = true;
         $syms = false;
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            // Recogemos los datos (o usamos valores por defecto)
+            
             $longitud = intval($_POST['longitud']);
             $mayus = isset($_POST['mayus']); // Si el check está marcado, devuelve true
             $nums = isset($_POST['nums']);

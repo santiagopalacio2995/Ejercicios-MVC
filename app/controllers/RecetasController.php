@@ -41,11 +41,11 @@ class RecetasController {
             exit();
         }
         
-        // Mostrar formulario de creación
+        
         require_once 'app/views/recetas_crear.php';
     }
 
-    // Acción para eliminar una receta
+    
     public function eliminar() {
         $id = $_GET['id'] ?? null;
         if ($id) {

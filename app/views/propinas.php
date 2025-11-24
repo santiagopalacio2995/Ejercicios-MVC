@@ -7,7 +7,7 @@
         body { font-family: sans-serif; max-width: 500px; margin: 20px auto; text-align: center; }
         .card { border: 1px solid #ccc; padding: 20px; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); }
         input, select, button { padding: 10px; margin: 10px 0; width: 80%; }
-        button { background: #007bff; color: white; border: none; cursor: pointer; }
+        button { background: #ff2600ff; color: white; border: none; cursor: pointer; }
         .resultado { background: #e2f0d9; padding: 15px; margin-top: 20px; border-radius: 5px; border: 1px solid #aeb; }
     </style>
 </head>

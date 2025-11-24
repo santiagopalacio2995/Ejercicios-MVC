@@ -8,16 +8,16 @@ class GastosController {
         $this->model = new GastoModel();
     }
 
-    // Acción principal: Mostrar lista y formulario de registro
+    // Mostrar lista y formulario de registro
     public function index() {
         $categorias = $this->model->obtenerCategorias();
         $gastos = $this->model->obtenerGastos();
         
-        // La vista principal (que contendrá la lista)
+        // La vista principal que contendrá la lista
         require_once 'app/views/gastos_registro.php';
     }
 
-    // Acción: Procesar el registro de un nuevo gasto
+    // Procesar el registro de un nuevo gasto
     public function agregar() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['monto'])) {
             $monto = $_POST['monto'];
@@ -31,7 +31,7 @@ class GastosController {
         header("Location: index.php?c=gastos&a=index");
     }
 
-    // Acción: Mostrar el resumen por categorías
+    // Mostrar el resumen por categorías
     public function resumen() {
         $resumen = $this->model->resumirPorCategoria();
         require_once 'app/views/gastos_resumen.php';

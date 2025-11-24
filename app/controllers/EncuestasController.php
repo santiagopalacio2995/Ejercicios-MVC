@@ -13,7 +13,7 @@ class EncuestasController {
         require_once 'app/views/encuestas_lista.php';
     }
 
-    // Muestra el formulario de creación o procesa la creación
+    // Muestra el formulario de creación 
     public function crear() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['titulo'])) {
             $titulo = $_POST['titulo'];
@@ -25,7 +25,7 @@ class EncuestasController {
             // Procesar las preguntas y opciones
             foreach ($preguntas_raw as $qIndex => $preguntaTexto) {
                 if (!empty(trim($preguntaTexto))) {
-                    // Separar opciones por salto de línea y filtrar vacías
+                    // Separar opciones por salto de línea 
                     $opciones = array_filter(array_map('trim', explode("\n", $opciones_raw[$qIndex] ?? '')));
                     
                     if (count($opciones) >= 2) {
@@ -49,7 +49,7 @@ class EncuestasController {
         require_once 'app/views/encuestas_crear.php';
     }
 
-    // Muestra el formulario para responder o procesa la respuesta
+    // Muestra el formulario para responder 
     public function responder() {
         $id = $_GET['id'] ?? null;
         $encuesta = $this->model->obtenerEncuestaPorId($id);
@@ -64,7 +64,7 @@ class EncuestasController {
             
             if (count($respuestas_post) == count($encuesta['preguntas'])) {
                 $respuestas_procesadas = [];
-                // Guardar como [indice_pregunta => indice_opcion_elegida]
+                // Guardar 
                 foreach ($respuestas_post as $qIndex => $oIndex) {
                     $respuestas_procesadas[$qIndex] = intval($oIndex);
                 }

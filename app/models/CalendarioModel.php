@@ -63,12 +63,12 @@ class CalendarioModel {
 
    public function eliminarEvento($fecha, $index) {
         if (isset($_SESSION['eventos'][$fecha]) && isset($_SESSION['eventos'][$fecha][$index])) {
-            // 1. Eliminar el evento del índice específico
+           
             unset($_SESSION['eventos'][$fecha][$index]);
-            // 2. Reindexar el array para evitar huecos (importante)
+            
             $_SESSION['eventos'][$fecha] = array_values($_SESSION['eventos'][$fecha]);
             
-            // 3. Si la fecha queda sin eventos, limpiamos la clave de la fecha
+            
             if (empty($_SESSION['eventos'][$fecha])) {
                 unset($_SESSION['eventos'][$fecha]);
             }

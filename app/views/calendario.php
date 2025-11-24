@@ -24,7 +24,7 @@
     <hr>
     
     <?php
-        // Corrección: Array para meses en español
+        
         $mesesEspañol = [
             1 => 'Enero', 2 => 'Febrero', 3 => 'Marzo', 4 => 'Abril', 5 => 'Mayo', 6 => 'Junio',
             7 => 'Julio', 8 => 'Agosto', 9 => 'Septiembre', 10 => 'Octubre', 11 => 'Noviembre', 12 => 'Diciembre'
@@ -55,16 +55,16 @@
             <tr>
                 <?php
                 $diaActual = 1;
-                // Rellenar celdas vacías del mes anterior
+                
                 for ($i = 1; $i < $diaInicio; $i++) {
                     echo '<td class="dia-vacio"></td>';
                 }
 
-                // Generar los días del mes
+                
                 while ($diaActual <= $diasDelMes) {
                     $diaDeLaSemana = date('N', strtotime("$anio-$mes-$diaActual"));
                     
-                    // Si es lunes, empezar una nueva fila
+                    
                     if ($diaDeLaSemana == 1 && $diaActual != 1) {
                         echo '</tr><tr>';
                     }
@@ -76,11 +76,11 @@
                     echo '<td>';
                     echo '<span class="dia-numero">' . $diaActual . '</span>';
                     
-                    // Mostrar Eventos con enlace de ELIMINACIÓN
+                    
                     foreach ($eventosDelDia as $index => $evento) {
                         echo '<div class="evento" title="' . $evento['hora'] . '">';
                         echo '<span>' . $evento['titulo'] . '</span>';
-                        // Enlace que llama a la nueva acción 'eliminar'
+                        
                         echo '<a href="index.php?c=calendario&a=eliminar&fecha=' . $fechaCompleta . '&index=' . $index . '" ';
                         echo 'class="btn-delete" onclick="return confirm(\'¿Eliminar el evento: ' . $evento['titulo'] . '?\');">X</a>';
                         echo '</div>';
@@ -90,7 +90,7 @@
                     $diaActual++;
                 }
 
-                // Rellenar celdas vacías del mes siguiente
+                
                 $celdasRestantes = 7 - $diaDeLaSemana;
                 for ($i = 0; $i < $celdasRestantes; $i++) {
                     echo '<td class="dia-vacio"></td>';

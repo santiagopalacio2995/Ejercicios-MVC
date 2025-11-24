@@ -8,7 +8,7 @@
         .form-creacion { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 30px; }
         input[type="text"], textarea { padding: 10px; margin: 5px 0 15px 0; width: 100%; box-sizing: border-box; }
         textarea { resize: vertical; min-height: 100px; }
-        button { background: #007bff; color: white; padding: 12px 15px; border: none; border-radius: 5px; cursor: pointer; }
+        button { background: #ff3c00ff; color: white; padding: 12px 15px; border: none; border-radius: 5px; cursor: pointer; }
         .nota { border: 1px solid #eee; margin-bottom: 15px; padding: 15px; border-radius: 5px; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .nota h3 { margin-top: 0; color: #333; }
         .nota-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #666; margin-top: 10px; }

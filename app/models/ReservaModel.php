@@ -19,21 +19,17 @@ class ReservaModel {
         return $this->horarios;
     }
 
-    /**
-     * Verifica la disponibilidad para una fecha y hora específicas.
-     */
+   
     public function estaDisponible($fecha, $hora) {
         foreach ($_SESSION['reservas'] as $reserva) {
             if ($reserva['fecha'] == $fecha && $reserva['hora'] == $hora) {
-                return false; // No disponible
+                return false; 
             }
         }
-        return true; // Disponible
+        return true; 
     }
 
-    /**
-     * Devuelve los horarios disponibles para una fecha específica.
-     */
+   
     public function obtenerDisponibilidadDelDia($fecha) {
         $disponibles = [];
         foreach ($this->horarios as $hora) {
@@ -44,9 +40,7 @@ class ReservaModel {
         return $disponibles;
     }
 
-    /**
-     * Agrega la reserva si está disponible.
-     */
+    
     public function agregarReserva($nombre, $servicio, $fecha, $hora) {
         if ($this->estaDisponible($fecha, $hora)) {
             $_SESSION['reservas'][] = [

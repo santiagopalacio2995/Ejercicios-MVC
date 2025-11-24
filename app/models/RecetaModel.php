@@ -5,7 +5,7 @@ class RecetaModel {
             session_start();
         }
         if (!isset($_SESSION['recetas'])) {
-            // Recetas de ejemplo para que la plataforma no esté vacía al inicio
+            
             if (empty($_SESSION['recetas'])) {
                 $_SESSION['recetas'] = [
                     [
@@ -20,7 +20,7 @@ class RecetaModel {
     }
 
     public function obtenerRecetas() {
-        // Devolvemos las recetas en orden, las más nuevas primero
+        
         return array_reverse($_SESSION['recetas']);
     }
 
@@ -47,7 +47,7 @@ class RecetaModel {
         foreach ($_SESSION['recetas'] as $key => $receta) {
             if ($receta['id'] == $id) {
                 unset($_SESSION['recetas'][$key]);
-                // Reindexar el array para evitar IDs vacíos
+                
                 $_SESSION['recetas'] = array_values($_SESSION['recetas']); 
                 return true;
             }

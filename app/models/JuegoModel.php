@@ -8,13 +8,13 @@ class JuegoModel {
 
     private function generarTablero($dimension) {
         $numPares = ($dimension * $dimension) / 2;
-        // Usamos letras para simular las imágenes
+        
         $valores = range('A', 'Z'); 
         
         shuffle($valores);
         $pares = array_slice($valores, 0, $numPares);
         
-        // Duplicar y mezclar los valores
+        
         $cartasValores = array_merge($pares, $pares);
         shuffle($cartasValores);
 
@@ -22,7 +22,7 @@ class JuegoModel {
         foreach ($cartasValores as $index => $valor) {
             $tablero[] = [
                 'valor' => $valor,
-                'estado' => 'hidden', // hidden, shown, matched
+                'estado' => 'hidden', 
                 'index' => $index
             ];
         }
@@ -30,7 +30,7 @@ class JuegoModel {
     }
 
     public function iniciarJuego($dificultad = 'facil') {
-        $dimension = ($dificultad == 'dificil') ? 6 : 4; // 4x4 o 6x6
+        $dimension = ($dificultad == 'dificil') ? 6 : 4; 
 
         $_SESSION['juego'] = [
             'dificultad' => $dificultad,
@@ -52,30 +52,30 @@ class JuegoModel {
         if (!isset($_SESSION['juego'])) return;
         $juego = &$_SESSION['juego']; // Referencia para modificar la sesión
 
-        // 1. Validar si ya está emparejada o ya volteada
+        //  Validar si ya está emparejada o ya volteada
         if ($juego['tablero'][$index]['estado'] !== 'hidden') {
             return;
         }
 
-        // 2. Si hay 2 cartas volteadas, primero re-ocultamos las anteriores (no hicieron match)
+        // Si hay 2 cartas volteadas, primero ocultamos las anteriores si no se emparejaron
         if (count($juego['volteadas']) == 2) {
             $juego['tablero'][$juego['volteadas'][0]['index']]['estado'] = 'hidden';
             $juego['tablero'][$juego['volteadas'][1]['index']]['estado'] = 'hidden';
             $juego['volteadas'] = []; // Limpiamos para el nuevo turno
         }
 
-        // 3. Voltear la carta actual y añadirla a la lista
+        // Voltear la carta actual y añadirla a la lista
         $juego['tablero'][$index]['estado'] = 'shown';
         $juego['volteadas'][] = $juego['tablero'][$index];
 
-        // 4. Verificar Match si ahora hay 2 cartas volteadas
+        // Verificar Match si ahora hay 2 cartas volteadas
         if (count($juego['volteadas']) == 2) {
             $juego['intentos']++;
             $card1 = $juego['volteadas'][0];
             $card2 = $juego['volteadas'][1];
             
             if ($card1['valor'] == $card2['valor']) {
-                // ¡MATCH! Se fijan como 'matched'
+                // dejarla volteadas si se emparejan
                 $juego['tablero'][$card1['index']]['estado'] = 'matched';
                 $juego['tablero'][$card2['index']]['estado'] = 'matched';
                 $juego['score'] += 10;
@@ -88,8 +88,8 @@ class JuegoModel {
                 }
 
             } else {
-                // NO MATCH. Se quedan 'shown' y se re-ocultan en el siguiente click (Paso 2).
-                $juego['score'] = max(0, $juego['score'] - 1); // Penalización
+                
+                $juego['score'] = max(0, $juego['score'] - 1);
                 $juego['mensaje'] = 'No es un par. Voltea la siguiente carta.';
             }
         }

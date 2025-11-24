@@ -7,8 +7,8 @@
         body { font-family: sans-serif; text-align: center; }
         .tablero { display: grid; gap: 10px; margin: 20px auto; }
         .card { width: 100%; height: 100%; border: 2px solid #333; border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 2em; font-weight: bold; user-select: none; }
-        .hidden { background-color: #3c8dbc; color: white; transition: background-color 0.3s; }
-        .hidden:hover { background-color: #337a9f; }
+        .hidden { background-color: #bc4f3cff; color: white; transition: background-color 0.3s; }
+        .hidden:hover { background-color: #9f4033ff; }
         .shown { background-color: #f0f0f0; color: #333; }
         .matched { background-color: #d4edda; color: #155724; border-color: #155724; pointer-events: none; } /* Desactiva el click */
         .card a { text-decoration: none; color: inherit; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; }

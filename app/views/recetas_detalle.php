@@ -18,7 +18,7 @@
     <h2>Ingredientes</h2>
     <ul>
         <?php
-        // Convertir la cadena de ingredientes separada por salto de línea en una lista HTML
+        
         $ingredientesArray = array_filter(explode("\n", $receta['ingredientes']));
         foreach ($ingredientesArray as $ingrediente) {
             echo '<li>' . trim($ingrediente) . '</li>';
@@ -29,7 +29,7 @@
     <h2>Pasos de Preparación</h2>
     <ol>
         <?php
-        // Convertir la cadena de pasos separada por salto de línea en una lista ordenada HTML
+        
         $pasosArray = array_filter(explode("\n", $receta['pasos']));
         foreach ($pasosArray as $paso) {
             echo '<li>' . trim($paso) . '</li>';

@@ -7,7 +7,7 @@
         body { font-family: sans-serif; max-width: 800px; margin: 20px auto; padding: 0 15px; }
         .resumen { text-align: center; background: #e9ecef; padding: 15px; border-radius: 8px; margin-bottom: 25px; }
         .resultado-pregunta { margin-bottom: 30px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
-        .resultado-pregunta h3 { color: #007bff; }
+        .resultado-pregunta h3 { color: #ff4800ff; }
         .barra-opcion { display: flex; align-items: center; margin-bottom: 10px; }
         .opcion-texto { width: 30%; text-align: right; padding-right: 10px; font-weight: bold; }
         .barra-contenedor { width: 55%; background: #f0f0f0; height: 30px; border-radius: 5px; overflow: hidden; }

@@ -5,11 +5,11 @@ class GastoModel {
             session_start();
         }
         if (!isset($_SESSION['gastos'])) {
-            // Inicializamos la lista de gastos
+           
             $_SESSION['gastos'] = [];
         }
         if (!isset($_SESSION['categorias'])) {
-            // Inicializamos algunas categorías
+           
             $_SESSION['categorias'] = ['Comida', 'Transporte', 'Vivienda', 'Diversion', 'Servicios', 'Otros'];
         }
     }
@@ -19,7 +19,7 @@ class GastoModel {
     }
 
     public function obtenerGastos() {
-        // Ordena los gastos por fecha, el más nuevo primero
+        
         $gastos = $_SESSION['gastos'];
         usort($gastos, function($a, $b) {
             return strtotime($b['fecha']) - strtotime($a['fecha']);
@@ -33,7 +33,7 @@ class GastoModel {
             'categoria' => $categoria,
             'descripcion' => htmlspecialchars($descripcion),
             'fecha' => $fecha,
-            'id' => uniqid() // ID único para futuras eliminaciones
+            'id' => uniqid() 
         ];
     }
     

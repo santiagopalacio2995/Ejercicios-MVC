@@ -5,10 +5,10 @@ class EncuestaModel {
             session_start();
         }
         if (!isset($_SESSION['encuestas'])) {
-            $_SESSION['encuestas'] = []; // Encuestas definidas
+            $_SESSION['encuestas'] = []; 
         }
         if (!isset($_SESSION['respuestas'])) {
-            $_SESSION['respuestas'] = []; // Respuestas de usuarios
+            $_SESSION['respuestas'] = []; 
         }
     }
 
@@ -20,35 +20,29 @@ class EncuestaModel {
         return $_SESSION['encuestas'][$id] ?? null;
     }
 
-    /**
-     * Guarda la definición de una nueva encuesta.
-     */
+    
     public function crearEncuesta($titulo, $preguntas) {
         $id = uniqid();
         $_SESSION['encuestas'][$id] = [
             'id' => $id,
             'titulo' => htmlspecialchars($titulo),
-            'preguntas' => $preguntas // Array de preguntas/opciones
+            'preguntas' => $preguntas 
         ];
         $_SESSION['respuestas'][$id] = [];
         return $id;
     }
 
-    /**
-     * Guarda la respuesta de un usuario.
-     */
+   
     public function guardarRespuesta($id_encuesta, $respuestas) {
         if (isset($_SESSION['encuestas'][$id_encuesta])) {
-            // Respuestas es un array: [indice_pregunta => indice_opcion_elegida]
+           
             $_SESSION['respuestas'][$id_encuesta][] = $respuestas;
             return true;
         }
         return false;
     }
     
-    /**
-     * Procesa todas las respuestas y genera el resumen.
-     */
+   
     public function analizarResultados($id_encuesta) {
         if (!isset($_SESSION['encuestas'][$id_encuesta])) {
             return null;
@@ -59,7 +53,7 @@ class EncuestaModel {
         $totalVotos = count($respuestas);
         $resultados = [];
         
-        // 1. Inicializar estructura y contar votos
+        
         foreach ($encuesta['preguntas'] as $qIndex => $pregunta) {
             $resultados[$qIndex] = [
                 'pregunta' => $pregunta['texto'],
@@ -71,7 +65,7 @@ class EncuestaModel {
             }
         }
         
-        // Contar votos
+        
         foreach ($respuestas as $respuesta) {
             foreach ($respuesta as $qIndex => $oIndex) {
                 if (isset($resultados[$qIndex]['opciones'][$oIndex])) {
@@ -81,7 +75,7 @@ class EncuestaModel {
             }
         }
 
-        // 2. Calcular porcentajes
+        
         foreach ($resultados as $qIndex => &$preguntaResultado) {
             $totalPregunta = $preguntaResultado['total_votos_pregunta'];
             if ($totalPregunta > 0) {

@@ -9,12 +9,12 @@
         .display { font-size: 4em; font-family: 'Courier New', monospace; }
         .buttons button { padding: 12px 25px; margin: 5px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background-color 0.2s; color: white; }
         
-        /* Estilos de botones */
+        
         #startPauseBtn { background: #28a745; }
-        #startPauseBtn.paused { background: #ffc107; } /* Color de Pausa/Reanudar */
+        #startPauseBtn.paused { background: #ffc107; } 
         #resetBtn { background: #dc3545; }
         #lapBtn { background: #007bff; }
-        #lapBtn:disabled { background: #6c757d; cursor: not-allowed; } /* Botón de vuelta deshabilitado */
+        #lapBtn:disabled { background: #6c757d; cursor: not-allowed; } 
         
         /* Lista de Tiempos Parciales */
         .laps-container { margin-top: 30px; text-align: left; }
@@ -47,21 +47,21 @@
     </div>
 
     <script>
-        // Variables de estado del cronómetro
-        let startTime = 0;       // El tiempo en el que se inicia el conteo.
-        let elapsedTime = 0;     // El tiempo total transcurrido (en ms).
-        let timerInterval;       // El ID del intervalo para detenerlo/reanudarlo.
-        let isRunning = false;   // Estado de ejecución.
-        let lapCounter = 0;      // Contador de vueltas.
+        
+        let startTime = 0;       
+        let elapsedTime = 0;     
+        let timerInterval;       
+        let isRunning = false;   
+        let lapCounter = 0;      
 
-        // Referencias a elementos del DOM
+        
         const display = document.getElementById('display');
         const startPauseBtn = document.getElementById('startPauseBtn');
         const resetBtn = document.getElementById('resetBtn');
         const lapBtn = document.getElementById('lapBtn');
         const lapsList = document.getElementById('lapsList');
 
-        // Función para formatear el tiempo de milisegundos a HH:MM:SS.mmm
+        
         function formatTime(ms) {
             const date = new Date(ms);
             const hours = String(date.getUTCHours()).padStart(2, '0');
@@ -72,27 +72,25 @@
             return `${hours}:${minutes}:${seconds}.${milliseconds}`;
         }
 
-        // Función que se ejecuta en cada intervalo para actualizar la hora
+        
         function printTime() {
-            // Calcula el tiempo transcurrido desde el inicio hasta ahora
+            
             elapsedTime = Date.now() - startTime;
             display.textContent = formatTime(elapsedTime);
         }
 
-        // --- Manejadores de Eventos ---
+        
 
         startPauseBtn.addEventListener('click', () => {
             if (isRunning) {
-                // Lógica de PAUSA
+              
                 clearInterval(timerInterval);
                 startPauseBtn.textContent = 'Reanudar';
                 startPauseBtn.classList.add('paused');
                 lapBtn.disabled = true;
                 isRunning = false;
             } else {
-                // Lógica de INICIO / REANUDAR
-                // Restamos el tiempo transcurrido para que el nuevo Date.now()
-                // retome desde donde se pausó.
+                
                 startTime = Date.now() - elapsedTime;
                 timerInterval = setInterval(printTime, 10); // Actualización cada 10ms
                 startPauseBtn.textContent = 'Pausar';
@@ -103,7 +101,7 @@
         });
 
         resetBtn.addEventListener('click', () => {
-            // Lógica de REINICIO
+            
             clearInterval(timerInterval);
             startTime = 0;
             elapsedTime = 0;
@@ -117,7 +115,7 @@
         });
 
         lapBtn.addEventListener('click', () => {
-            // Lógica de VUELTA/TIEMPO PARCIAL
+            
             if (isRunning) {
                 lapCounter++;
                 const lapTime = formatTime(elapsedTime);
@@ -126,7 +124,7 @@
                 listItem.className = 'lap-item';
                 listItem.innerHTML = `<span class="lap-number">Vuelta ${lapCounter}:</span> <span>${lapTime}</span>`;
                 
-                // Añadir al principio de la lista (las más nuevas arriba)
+                
                 lapsList.prepend(listItem);
             }
         });

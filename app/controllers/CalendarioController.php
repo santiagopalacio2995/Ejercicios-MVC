@@ -10,16 +10,16 @@ class CalendarioController {
 
     // Acción principal: Muestra el calendario para el mes/año seleccionado
     public function index() {
-        // 1. Determinar el mes y año a mostrar
+        // Determinar el mes y año a mostrar
         $mes = $_GET['mes'] ?? date('m');
         $anio = $_GET['anio'] ?? date('Y');
         
-        // 2. Preparar los datos del calendario para la vista
+        // Preparar los datos del calendario para la vista
         $diasDelMes = $this->model->obtenerDiasDelMes($mes, $anio);
         $diaInicio = $this->model->obtenerDiaInicioMes($mes, $anio);
         $eventos = $this->model->obtenerTodosLosEventos(); // Todos los eventos para la vista
 
-        // 3. Preparar la navegación (mes anterior y siguiente)
+        //  Preparar la navegación (mes anterior y siguiente)
         $mesAnterior = $mes - 1;
         $anioAnterior = $anio;
         $mesSiguiente = $mes + 1;
@@ -37,7 +37,7 @@ class CalendarioController {
         require_once 'app/views/calendario.php';
     }
 
-    // Acción: Procesar el formulario para agregar un evento
+    // Procesar el formulario para agregar un evento
     public function agregar() {
         $titulo = $_POST['titulo'] ?? '';
         $fecha = $_POST['fecha_evento'] ?? '';
